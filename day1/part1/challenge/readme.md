@@ -1,0 +1,1 @@
+use data from `input.txt` as input for function
