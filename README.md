@@ -1,2 +1,2 @@
 # Learn-JS
-L
+whrite function and run `npm run test`

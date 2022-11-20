@@ -53,13 +53,20 @@ do
                 esac
             done;;
         "day2")
-            node_modules/.bin/jest day2;;
+            echo "Coming soon"
+            break;;
+            # node_modules/.bin/jest day2;;
         "day3")
-            node_modules/.bin/jest day3;;
+            # node_modules/.bin/jest day3;;
+            echo "Coming soon"
+            break;;
         "day4")
-            node_modules/.bin/jest day4;;
+            # node_modules/.bin/jest day4;;
+            echo "Coming soon"
+            break;;
         "day5")
-            node_modules/.bin/jest day1
+            # node_modules/.bin/jest day1
+            echo "Coming soon"
             break;;
         *)
            echo "Ooops";;
