@@ -53,9 +53,51 @@ do
                 esac
             done;;
         "day2")
-            echo "Coming soon"
-            break;;
-            # node_modules/.bin/jest day2;;
+            echo "select part"
+            select t in part1 part2 back quit
+            do
+                case $t in
+                    "part1")
+                        echo "Select mode"
+                       select r in func challenge quit
+                        do
+                            case $r in
+                                "func")
+                                    node_modules/.bin/jest day2/part1/index.test.js
+                                    break;;
+                                "challenge")
+                                    node_modules/.bin/jest day2/part1/challenge
+                                    break;; 
+                                "quit")
+                                    exit;;
+                                 *)
+                                    echo "invalid option" & exit;;
+                                esac
+                        done;;
+                        
+                    "part2")
+                        echo "Select mode"
+                       select p in func challenge quit
+                        do
+                            case $p in
+                                "func")
+                                    node_modules/.bin/jest day2/part2/index.test.js
+                                    break;;
+                                "challenge")
+                                    node_modules/.bin/jest day2/part2/challenge
+                                    break;; 
+                                "quit")
+                                    exit;;
+                                 *)
+                                    echo "invalid option" & exit;;
+                                esac
+                        done;;
+                    "quit")
+                        exit;;
+                    *)
+                    echo "invalid option" & exit;;
+                esac
+            done;;
         "day3")
             # node_modules/.bin/jest day3;;
             echo "Coming soon"
