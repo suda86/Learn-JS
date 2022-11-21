@@ -13,14 +13,14 @@ do
                 case $t in
                     "part1")
                         echo "Select mode"
-                       select r in func challenge quit
+                       select r in func chellange quit
                         do
                             case $r in
                                 "func")
                                     node_modules/.bin/jest day1/part1/index.test.js
                                     break;;
-                                "challenge")
-                                    node_modules/.bin/jest day1/part1/challenge
+                                "chellange")
+                                    node_modules/.bin/jest day1/part1/chellange
                                     break;; 
                                 "quit")
                                     exit;;
@@ -31,14 +31,14 @@ do
                         
                     "part2")
                         echo "Select mode"
-                       select p in func challenge quit
+                       select p in func chellange quit
                         do
                             case $p in
                                 "func")
                                     node_modules/.bin/jest day1/part2/index.test.js
                                     break;;
-                                "challenge")
-                                    node_modules/.bin/jest day1/part2/challenge
+                                "chellange")
+                                    node_modules/.bin/jest day1/part2/chellange
                                     break;; 
                                 "quit")
                                     exit;;
@@ -59,14 +59,14 @@ do
                 case $t in
                     "part1")
                         echo "Select mode"
-                       select r in func challenge quit
+                       select r in func chellange quit
                         do
                             case $r in
                                 "func")
                                     node_modules/.bin/jest day2/part1/index.test.js
                                     break;;
-                                "challenge")
-                                    node_modules/.bin/jest day2/part1/challenge
+                                "chellange")
+                                    node_modules/.bin/jest day2/part1/chellange
                                     break;; 
                                 "quit")
                                     exit;;
@@ -77,14 +77,14 @@ do
                         
                     "part2")
                         echo "Select mode"
-                       select p in func challenge quit
+                       select p in func chellange quit
                         do
                             case $p in
                                 "func")
                                     node_modules/.bin/jest day2/part2/index.test.js
                                     break;;
-                                "challenge")
-                                    node_modules/.bin/jest day2/part2/challenge
+                                "chellange")
+                                    node_modules/.bin/jest day2/part2/chellange
                                     break;; 
                                 "quit")
                                     exit;;
@@ -99,9 +99,51 @@ do
                 esac
             done;;
         "day3")
-            # node_modules/.bin/jest day3;;
-            echo "Coming soon"
-            break;;
+            echo "select part"
+            select t in part1 part2 back quit
+            do
+                case $t in
+                    "part1")
+                        echo "Select mode"
+                       select r in func chellange quit
+                        do
+                            case $r in
+                                "func")
+                                    node_modules/.bin/jest day3/part1/index.test.js
+                                    break;;
+                                "chellange")
+                                    node_modules/.bin/jest day3/part1/chellange
+                                    break;; 
+                                "quit")
+                                    exit;;
+                                 *)
+                                    echo "invalid option" & exit;;
+                                esac
+                        done;;
+                        
+                    "part2")
+                        echo "Select mode"
+                       select p in func chellange quit
+                        do
+                            case $p in
+                                "func")
+                                    node_modules/.bin/jest day3/part2/index.test.js
+                                    break;;
+                                "chellange")
+                                    node_modules/.bin/jest day3/part2/chellange
+                                    break;; 
+                                "quit")
+                                    exit;;
+                                 *)
+                                    echo "invalid option" & exit;;
+                                esac
+                        done;;
+                    "quit")
+                        exit;;
+                    *)
+                    echo "invalid option" & exit;;
+                esac
+            done;;
         "day4")
             # node_modules/.bin/jest day4;;
             echo "Coming soon"
