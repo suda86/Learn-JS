@@ -37,6 +37,7 @@ const day3part1 = (input) => {
             x++
         }
     })
+    return gift
 
 }
 
