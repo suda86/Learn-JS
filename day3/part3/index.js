@@ -1,7 +1,7 @@
 const day3part3 = (input) => {
 
     let inp = [...input]
-    // let numberHouseWithTwoGift = [];
+    
     let matrix = [];
     let x = inp.length;
     let y = inp.length
@@ -10,7 +10,7 @@ const day3part3 = (input) => {
         for (let i = 0; i < (inp.length * 2 + 1); i++) {
             matrix.push([])
             for (let j = 0; j < (inp.length * 2 + 1); j++) {
-                matrix[i].push(1)
+                matrix[i].push(0)
             }
         }
 
@@ -18,93 +18,41 @@ const day3part3 = (input) => {
 
     makeMatrix()
 
-
     inp.forEach(e => {
-        matrix[x][y] = 0
+        matrix[x][y] = 1
         if (e === ">") {
-
-            if (matrix[x][y + 1] === 0) {
-                matrix[x][y + 1] = true
-                y++
-            } else if (matrix[x][y + 1] === true) {
-                matrix[x][y + 1] = false
-                y++
-            } else if (matrix[x][y + 1] === false) {
-                matrix[x][y + 1] = false
-                y++
-            } else {
-                matrix[x][y + 1] = 0
-                y++
-            }
-
+            
+            matrix[x][y + 1] += 1
+            y++
+            return matrix[x][y] 
         } else if (e === "<") {
-
-            if (matrix[x][y - 1] === 0) {
-                matrix[x][y - 1] = true
-                y--
-            } else if (matrix[x][y - 1] === true) {
-                matrix[x][y - 1] = false
-                y--
-            } else if (matrix[x][y - 1] === false) {
-                matrix[x][y - 1] = false
-                y--
-            }
-            {
-                matrix[x][y - 1] = 0
-                y--
-            }
+            matrix[x][y - 1] += 1
+            y--
+            return  matrix[x][y]
         } else if (e === "^") {
-
-            if (matrix[x - 1][y] === 0) {
-                matrix[x - 1][y] = true
-                x--
-            } else if (matrix[x - 1][y] === true) {
-                matrix[x - 1][y] = false
-                x--
-            } else if (matrix[x - 1][y] === false) {
-                matrix[x - 1][y] = false
-                x--
-            } else {
-                matrix[x - 1][y] = 0
-                x--
-            }
-        } else if (matrix[x - 1][y] === false) {
-            matrix[x - 1][y] = false
+            // console.log(matrix[x - 1][y]+ "^")
+            // console.log(matrix[x - 1][y]+ "^")
+            matrix[x - 1][y] ++
+            // console.log(matrix[x - 1][y]+ "^")
             x--
+            return matrix[x][y] 
         } else {
-
-            if (matrix[x + 1][y] === 0) {
-                matrix[x + 1][y] = true
-                x++
-            } else if (matrix[x + 1][y] === true) {
-                matrix[x + 1][y] = false
-                x++
-            } else if (matrix[x + 1][y] === false) {
-                matrix[x + 1][y] = false
-                x++
-            } else {
-                matrix[x + 1][y] = 0
-                x++
-            }
+            // console.log(matrix[x + 1][y] +"v")
+            matrix[x + 1][y] ++
+            // console.log(matrix[x + 1][y] +"v")
+            x++
+            return matrix[x][y] 
         }
-    })// [
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],    ar[,]
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 0, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, tr, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //     [1, 1, 1, 1, 1, 1, 1, 1, 1]
-    // ]
+    })
 
-    let numberHouseWithTwoGift = matrix.filter(tr => tr === true)
 
-    console.log("*******************************");
-    // console.log(matrix);
-    console.log(matrix);
 
+    let array = [].concat(...matrix);
+    let numberHouseWithTwoGift = array.filter(arr=>arr===2)
+
+
+    
+    
     return numberHouseWithTwoGift.length
 
 
